@@ -12,6 +12,13 @@ public class DeQuyGiaiThua {
 		            System.out.println("n phai nho hon hoac bang 20.");
 		        }
 		  }
+	  public static long calculateFactorialD(int n) {
+	        if (n == 0 || n == 1) {
+	            return 1;
+	        } else {
+	            return n * calculateFactorial(n - 1);
+	        }
+	    }
 		  
 		    public static long calculateFactorial(int n) {
 		        long result = 1;
