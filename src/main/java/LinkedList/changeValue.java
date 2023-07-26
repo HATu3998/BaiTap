@@ -1,17 +1,17 @@
 package LinkedList;
 import java.util.Scanner;
- 
+import LinkedList.LNode;
 public class changeValue {
 	  public static void main(String[] args) {
 	        Scanner input = new Scanner(System.in);
 	        int n = input.nextInt();
 
-	        Node head = null;
-	        Node tail = null;
+	        LNode head = null;
+	        LNode tail = null;
 
 	        for (int i = 0; i < n; i++) {
 	            int num = input.nextInt();
-	            Node newNode = new Node(num);
+	            LNode newNode = new LNode(num);
 
 	            if (head == null) {
 	                head = newNode;
@@ -32,9 +32,23 @@ public class changeValue {
 	        // In ra màn hình danh sách sau khi thay đổi giá trị
 	        printLinkedList(head);
 	    }
+	  
+	  public void dele(LNode head,int index) {
+		
+		  if(index==0) {
+			  head=head.next;
+		  }else {
+			  LNode current=head;
+			for(int i=0;i<index-1;i++) {
+				current=current.next;
+			}
+			current.next=current.next.next;
+		  }
+		  
+	  }
 
-	    public static void changeValue(Node head, int a, int b) {
-	        Node current = head;
+	    public static void changeValue(LNode head, int a, int b) {
+	        LNode current = head;
 	        while (current != null) {
 	            if (current.val == a) {
 	                current.val = b;
@@ -43,21 +57,13 @@ public class changeValue {
 	        }
 	    }
 
-	    public static void printLinkedList(Node head) {
-	        Node current = head;
+	    public static void printLinkedList(LNode head) {
+	        LNode current = head;
 	        while (current != null) {
 	            System.out.print(current.val + " ");
 	            current = current.next;
 	        }
 	    }
-	}
+	
 
-	class Node {
-	    int val;
-	    Node next;
-
-	    public Node(int val) {
-	        this.val = val;
-	        this.next = null;
-	    }
 	}
